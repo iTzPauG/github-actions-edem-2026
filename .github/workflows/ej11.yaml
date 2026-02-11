@@ -1,0 +1,24 @@
+name: EJ 11
+on:
+  workflow_dispatch:
+    inputs:
+      test:
+        type: boolean
+        description: test
+        required: true
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+    - name: json-yaml-validate
+      uses: GrantBirki/json-yaml-validate@v4.0.0 # replace with the latest version
+      with:
+        json_schema: schema.json
+        input_json: ventas.json
+    - name: test 
+      if: ${{ github.event.inputs.test == 'true' }}
+      run: python -m unittest discover -s code/python -p "test_*.py"
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1

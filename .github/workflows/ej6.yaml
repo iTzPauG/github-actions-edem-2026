@@ -1,0 +1,20 @@
+name: json-yaml-validate 
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.json'
+
+permissions:
+  contents: read
+
+jobs:
+  json-yaml-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: json-yaml-validate
+        uses: GrantBirki/json-yaml-validate@v4.0.0 # replace with the latest version
+        with:
+          json_schema: schema.json

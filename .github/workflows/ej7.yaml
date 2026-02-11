@@ -1,0 +1,25 @@
+
+name: EJ 7
+on:
+  workflow_dispatch:
+jobs: 
+  say_hello:
+    name: "Let's greet the user"
+    runs-on: ubuntu-latest
+    steps:
+      - id: get-time
+        name: Grab the current time
+        run: |
+          curTime=$(date)
+          echo "curTime=$curTime" >> $GITHUB_OUTPUT
+      - id: get-random
+        name: Generate random number
+        run: |
+          randomNumber=$(( RANDOM ))
+          echo "randomNumber=$randomNumber" >> $GITHUB_OUTPUT
+  reciber:
+      name: "Let's greet the user"
+      runs-on: ubuntu-latest
+      steps:
+        - run: echo "The time from the early job is ${{ jobs.say_hello.outputs.curTime }}"
+        - run: echo "The random number from the early job is ${{ jobs.say_hello.outputs.randomNumber }}"

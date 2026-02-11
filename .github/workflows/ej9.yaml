@@ -1,0 +1,30 @@
+name: EJ 9
+on:
+  workflow_dispatch:
+jobs:
+  test-postgres:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: myuser
+          POSTGRES_PASSWORD: mypassword
+          POSTGRES_DB: mydb
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U myuser -d mydb"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+    steps:
+    - name: Wait for Postgres to be healthy
+      run: |
+        until pg_isready -h localhost -p 5432 -U myuser -d mydb; do
+          echo "Waiting for Postgres to be healthy..."
+          sleep 5
+        done
+    - name: Test connection to Postgres
+      run: |
+        PGPASSWORD=mypassword psql -h localhost -p 5432 -U myuser -d mydb -c '\l'

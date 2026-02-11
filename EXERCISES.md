@@ -14,7 +14,7 @@ Este documento contiene 10 ejercicios diseñados para dominar la automatización
 6. Validación de JSON: Crea un workflow que use una acción de la comunidad para validar que un archivo data.json en el repo tiene un formato correcto. Para este ejercicio debeis generar un archivo .json en la raíz del repositorio con las claves (curso, modulo y alumnos)
 
 7. Salidas entre Jobs (Outputs): El Job A genera un número aleatorio y lo pasa como "output" al Job B.
-   
+
 8. Programación Temporal (Cron): Configura un workflow que se ejecute automáticamente todos los lunes a las 9:00 AM.
 
 9.  Contenedores de Servicio: Configura un job que levante un servicio de base de datos Postgres a través de un container de servicio y verifique su conexión Deberas configurar estas variables de entorno: POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB.

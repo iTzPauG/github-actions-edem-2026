@@ -1,0 +1,14 @@
+name: EJ 2
+
+on:
+  push:
+    branches: [develop]
+    paths:
+      - "docs/**"
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+    - name: first step
+      run: echo "Se ha modificado la documentación"

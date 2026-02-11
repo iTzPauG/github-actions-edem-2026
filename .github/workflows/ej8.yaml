@@ -1,0 +1,11 @@
+8. Programación Temporal (Cron): Configura un workflow que se ejecute automáticamente todos los lunes a las 9:00 AM.
+name: EJ 8
+on:
+  schedule:
+    - cron: '0 9 * * 1' # Esto se ejecutará todos los lunes a las 9:00 AM
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Greet the world
+      run: echo "¡Feliz lunes! Comienza la semana con energía." 

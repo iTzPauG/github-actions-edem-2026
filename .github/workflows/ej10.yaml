@@ -1,0 +1,17 @@
+10. Aprobación Manual y Despliegue: Un workflow con dos jobs: "Build" y "Deploy". "Deploy" solo debe ejecutarse si "Build" termina con éxito y solo si el evento es manual (workflow_dispatch).
+name: EJ 10
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build Step
+      run: echo "Building the project..."
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'workflow_dispatch'
+    steps:
+    - name: Deploy Step
+      run: echo "Deploying the project..."
