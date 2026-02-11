@@ -1,4 +1,4 @@
-name: Welcome to the party 4
+name: outputs test
 on: 
   workflow_dispatch:
 jobs: 
