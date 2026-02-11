@@ -1,0 +1,14 @@
+name: EJ 1
+
+on:
+  workflow_dispatch:
+
+env:
+  GREETING: "Hello World"
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Fist Step
+      run: echo "${{ env.GREETING }}"

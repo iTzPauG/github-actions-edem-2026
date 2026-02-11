@@ -1,0 +1,15 @@
+name: EJ 2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+    - name: first step
+      run: echo "conectando servidor"
+    - name: login
+      run: echo "el usuario se ha loggeado con la contraseña  ${{ secrets.contrasena }}"
+    - name: second step
+      run: echo "loggeado con contraseña secreta"

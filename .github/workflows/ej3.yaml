@@ -1,0 +1,41 @@
+name: EJ 3
+
+on:
+  workflow_dispatch:
+jobs:
+  py11.2:
+    runs-on: ubuntu-latest
+    steps:
+    # Checkout the repository
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # Set up Python
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11.2'
+  py11.9:
+    runs-on: ubuntu-latest
+    steps:
+    # Checkout the repository
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # Set up Python
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11.9'
+  py12.0:
+    runs-on: ubuntu-latest
+    steps:
+    # Checkout the repository
+    - name: Checkout code
+      uses: actions/checkout@v4   
+
+    # Set up Python
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12.0'
